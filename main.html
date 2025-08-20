@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amina Adilkhan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 1.1em;
+        }
+
+        .main-content {
+            display: flex;
+            min-height: 600px;
+        }
+
+        .left-panel {
+            width: 400px;
+            padding: 40px;
+            background: #fafafa;
+            border-right: 1px solid #e0e0e0;
+        }
+
+        .right-panel {
+            flex: 1;
+            padding: 40px;
+            background: white;
+        }
+
+        .credentials-section {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .credentials-section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .api-methods-section {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .api-methods-section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .message-section {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .message-section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .file-section {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .file-section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .input-field {
+            margin-bottom: 15px;
+        }
+
+        .input-field input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .input-field input:focus {
+            border-color: #4CAF50;
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.2);
+            outline: none;
+        }
+
+        .button {
+            width: 100%;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-bottom: 15px;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .button:active {
+            transform: translateY(0);
+        }
+
+        .button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .response-section {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .response-section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .response-title {
+            font-size: 1.5em;
+            color: #4CAF50;
+            margin-bottom: 20px;
+            font-weight: 600;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 10px;
+        }
+
+        .response-area {
+            width: 100%;
+            height: 500px;
+            padding: 20px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            background: #f8f9fa;
+            resize: none;
+            line-height: 1.4;
+            transition: all 0.3s ease;
+        }
+
+        .response-area:focus {
+            border-color: #4CAF50;
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.2);
+            outline: none;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .action-button {
+            flex: 1;
+            padding: 8px 15px;
+            background: linear-gradient(135deg, #6c757d, #5a6268);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            min-width: 120px;
+        }
+
+        .action-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 3px 10px rgba(108, 117, 125, 0.3);
+        }
+
+        .action-button.copy:hover {
+            background: linear-gradient(135deg, #17a2b8, #138496);
+        }
+
+        .action-button.clear:hover {
+            background: linear-gradient(135deg, #dc3545, #c82333);
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 280px;
+            background-color: #333;
+            color: #fff;
+            text-align: left;
+            border-radius: 6px;
+            padding: 10px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -140px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #333 transparent transparent transparent;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .help-icon {
+            color: #4CAF50;
+            margin-left: 5px;
+            cursor: help;
+        }
+
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.3s ease;
+        }
+
+        .notification.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .phone-help {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        .status-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 8px;
+            background: #dc3545;
+        }
+
+        .status-indicator.connected {
+            background: #28a745;
+        }
+
+        .section-title {
+            font-size: 1.2em;
+            color: #4CAF50;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+            }
+
+            .left-panel {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid #e0e0e0;
+            }
+
+            .container {
+                margin: 10px;
+                border-radius: 10px;
+            }
+
+            .header, .left-panel, .right-panel {
+                padding: 20px;
+            }
+
+            .credentials-section, .api-methods-section, .message-section, .file-section, .response-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Test task Amina Adilkhan</h1>
+        </div>
+
+        <div class="main-content">
+            <div class="left-panel">
+                <div class="credentials-section">
+                    <div class="section-title">
+                        <span class="status-indicator" id="connectionStatus"></span>
+                        Подключение
+                        <span class="tooltip">
+                            <span class="help-icon">ℹ️</span>
+                            <span class="tooltiptext">
+                                <strong>Как получить данные:</strong><br>
+                                1. Зайдите в личный кабинет GREEN-API<br>
+                                2. Создайте новый инстанс<br>
+                                3. Скопируйте idInstance и ApiTokenInstance<br>
+                                4. Отсканируйте QR-код в WhatsApp
+                            </span>
+                        </span>
+                    </div>
+                    <div class="input-field">
+                        <input type="text" id="idInstance" placeholder="idInstance">
+                    </div>
+                    <div class="input-field">
+                        <input type="text" id="apiToken" placeholder="ApiTokenInstance">
+                    </div>
+                </div>
+
+                <div class="api-methods-section">
+                    <div class="section-title">Методы API</div>
+                    <button class="button" onclick="getSettings()">getSettings</button>
+                    <button class="button" onclick="getStateInstance()">getStateInstance</button>
+                </div>
+
+                <div class="message-section">
+                    <div class="section-title">Отправка сообщения</div>
+                    <div class="input-field">
+                        <input type="text" id="phoneNumber" placeholder="Номер телефона" >
+                        <div class="phone-help">Формат: номер без + (например: 77005138095)</div>
+
+                    </div>
+                    <div class="input-field">
+                        <input type="text" id="messageText" placeholder="Сообщение">
+                    </div>
+                    <button class="button" onclick="sendMessage()">sendMessage</button>
+                </div>
+
+                <div class="file-section">
+                    <div class="section-title">Отправка файла</div>
+                    <div class="input-field">
+                        <input type="text" id="phoneNumberFile" placeholder="Номер телефона">
+                         <div class="phone-help">Формат: номер без + (например: 77005138095)</div>
+
+                    </div>
+                    <div class="input-field">
+                        <input type="text" id="fileUrl" placeholder="Вставьте ссылку на файл" value="https://upload.wikimedia.org/wikipedia/commons/4/47/PNG_transparency_demonstration_1.png
+">
+                    </div>
+                    <button class="button" onclick="sendFileByUrl()">sendFileByUrl</button>
+                </div>
+            </div>
+
+            <div class="right-panel">
+                <div class="response-section">
+                    <div class="response-title">Ответ:</div>
+                    <div class="action-buttons">
+                        <button class="action-button copy" onclick="copyResponse()">📋 Скопировать</button>
+                        <button class="action-button clear" onclick="clearResponse()">🗑️ Очистить</button>
+                    </div>
+                    <textarea class="response-area" id="responseArea" readonly></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            Amina Adilkhan © 2025
+        </div>
+
+        <div class="notification" id="notification"></div>
+    </div>
+
+    <script>
+        const BASE_URL = 'https://api.green-api.com';
+
+
+        let savedCredentials = {
+            idInstance: '',
+            apiToken: ''
+        };
+
+        function updateConnectionStatus() {
+            const idInstance = document.getElementById('idInstance').value;
+            const apiToken = document.getElementById('apiToken').value;
+            const indicator = document.getElementById('connectionStatus');
+
+            if (idInstance && apiToken) {
+                indicator.classList.add('connected');
+                saveCredentials(idInstance, apiToken);
+            } else {
+                indicator.classList.remove('connected');
+            }
+        }
+
+        function saveCredentials(idInstance, apiToken) {
+            savedCredentials.idInstance = idInstance;
+            savedCredentials.apiToken = apiToken;
+        }
+
+
+        function loadSavedCredentials() {
+            const savedId = savedCredentials.idInstance;
+            const savedToken = savedCredentials.apiToken;
+
+            if (savedId) {
+                document.getElementById('idInstance').value = savedId;
+            }
+            if (savedToken) {
+                document.getElementById('apiToken').value = savedToken;
+            }
+            updateConnectionStatus();
+        }
+
+        function showNotification(message, type = 'success') {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.className = `notification ${type} show`;
+
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+
+
+        async function copyResponse() {
+            const responseArea = document.getElementById('responseArea');
+            const text = responseArea.value;
+
+            if (!text.trim()) {
+                showNotification('Нечего копировать!', 'error');
+                return;
+            }
+
+            try {
+                await navigator.clipboard.writeText(text);
+                showNotification('Ответ скопирован в буфер обмена! 📋');
+            } catch (err) {
+                responseArea.select();
+                document.execCommand('copy');
+                showNotification('Ответ скопирован в буфер обмена! 📋');
+            }
+        }
+
+        function clearResponse() {
+            const responseArea = document.getElementById('responseArea');
+            responseArea.value = '';
+            showNotification('Область ответов очищена! 🗑️');
+        }
+
+        document.getElementById('idInstance').addEventListener('input', updateConnectionStatus);
+        document.getElementById('apiToken').addEventListener('input', updateConnectionStatus);
+
+        function getCredentials() {
+            const idInstance = document.getElementById('idInstance').value.trim();
+            const apiToken = document.getElementById('apiToken').value.trim();
+
+            if (!idInstance || !apiToken) {
+                throw new Error('Пожалуйста, введите idInstance и ApiTokenInstance');
+            }
+
+            return { idInstance, apiToken };
+        }
+
+        async function makeApiRequest(method, endpoint, data = null) {
+            try {
+                const { idInstance, apiToken } = getCredentials();
+                const url = `${BASE_URL}/waInstance${idInstance}/${endpoint}/${apiToken}`;
+
+                const options = {
+                    method: method,
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                };
+
+                if (data) {
+                    options.body = JSON.stringify(data);
+                }
+
+                showLoading(true);
+                const response = await fetch(url, options);
+                const result = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${JSON.stringify(result)}`);
+                }
+
+                return result;
+            } catch (error) {
+                throw error;
+            } finally {
+                showLoading(false);
+            }
+        }
+
+        function showLoading(loading) {
+            const buttons = document.querySelectorAll('.button');
+            buttons.forEach(btn => {
+                btn.disabled = loading;
+            });
+        }
+
+        function displayResponse(response, method = '') {
+            const responseArea = document.getElementById('responseArea');
+            const timestamp = new Date().toLocaleString('ru-RU');
+
+            const formattedResponse = `[${timestamp}] ${method}\n${JSON.stringify(response, null, 2)}\n\n${responseArea.value}`;
+            responseArea.value = formattedResponse;
+            responseArea.scrollTop = 0;
+        }
+
+        function displayError(error, method = '') {
+            const responseArea = document.getElementById('responseArea');
+            const timestamp = new Date().toLocaleString('ru-RU');
+
+            const errorMessage = `[${timestamp}] ОШИБКА ${method}\n${error.message}\n\n${responseArea.value}`;
+            responseArea.value = errorMessage;
+            responseArea.scrollTop = 0;
+        }
+
+        async function getSettings() {
+            try {
+                const response = await makeApiRequest('GET', 'getSettings');
+                displayResponse(response, 'getSettings');
+            } catch (error) {
+                displayError(error, 'getSettings');
+            }
+        }
+
+        async function getStateInstance() {
+            try {
+                const response = await makeApiRequest('GET', 'getStateInstance');
+                displayResponse(response, 'getStateInstance');
+            } catch (error) {
+                displayError(error, 'getStateInstance');
+            }
+        }
+
+        async function sendMessage() {
+            try {
+                const phoneNumber = document.getElementById('phoneNumber').value.trim();
+                const messageText = document.getElementById('messageText').value.trim();
+
+                if (!phoneNumber || !messageText) {
+                    throw new Error('Пожалуйста, введите номер телефона и текст сообщения');
+                }
+
+                const formattedPhone = phoneNumber + '@c.us';
+
+                const data = {
+                    chatId: formattedPhone,
+                    message: messageText
+                };
+
+                const response = await makeApiRequest('POST', 'sendMessage', data);
+                displayResponse(response, 'sendMessage');
+            } catch (error) {
+                displayError(error, 'sendMessage');
+            }
+        }
+
+        async function sendFileByUrl() {
+            try {
+                const phoneNumber = document.getElementById('phoneNumberFile').value.trim();
+                const fileUrl = document.getElementById('fileUrl').value.trim();
+
+                if (!phoneNumber || !fileUrl) {
+                    throw new Error('Пожалуйста, введите номер телефона и URL файла');
+                }
+
+                const formattedPhone = phoneNumber + '@c.us';
+
+                const data = {
+                    chatId: formattedPhone,
+                    urlFile: fileUrl,
+                    fileName: "horse.png"
+                };
+
+                const response = await makeApiRequest('POST', 'sendFileByUrl', data);
+                displayResponse(response, 'sendFileByUrl');
+            } catch (error) {
+                displayError(error, 'sendFileByUrl');
+            }
+        }
+
+    </script>
+</body>
+</html>
